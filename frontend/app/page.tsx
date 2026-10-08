@@ -313,10 +313,12 @@ export default async function HomePage() {
           <div className="p-8 sm:p-12 rounded-3xl glass-panel border border-cyan-500/20 relative overflow-hidden">
             <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
               <div className="md:col-span-4 flex flex-col items-center text-center">
-                <div className="w-32 h-32 rounded-2xl bg-gradient-to-tr from-cyan-500 to-indigo-600 p-1 shadow-xl shadow-cyan-500/20">
-                  <div className="w-full h-full rounded-2xl bg-slate-900 flex items-center justify-center text-3xl font-black text-cyan-400">
-                    JC
-                  </div>
+                <div className="w-36 h-36 rounded-2xl bg-gradient-to-tr from-cyan-500 via-sky-400 to-indigo-600 p-1 shadow-xl shadow-cyan-500/25 overflow-hidden group">
+                  <img
+                    src="/founder.jpg"
+                    alt={company.founder_name}
+                    className="w-full h-full object-cover object-top rounded-[14px] group-hover:scale-105 transition-transform duration-300"
+                  />
                 </div>
                 <h3 className="text-xl font-bold text-white mt-4">{company.founder_name}</h3>
                 <p className="text-xs font-medium text-cyan-400">{company.founder_role}</p>
