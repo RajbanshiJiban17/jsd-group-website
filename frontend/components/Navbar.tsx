@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Menu, X, Sun, Moon, ArrowRight, Sparkles } from 'lucide-react';
 import { useTheme } from '@/lib/theme';
+import BrandLogo from '@/components/BrandLogo';
 
 const NAV_LINKS = [
   { name: 'Home', href: '/' },
@@ -48,19 +49,8 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-3 group">
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-cyan-500 to-indigo-600 flex items-center justify-center font-black text-white text-lg tracking-wider shadow-md shadow-cyan-500/20 group-hover:scale-105 transition-transform">
-              JSD
-            </div>
-            <div className="flex flex-col">
-              <span className="font-extrabold tracking-tight text-lg text-foreground flex items-center gap-1.5">
-                JSD GROUP
-                <span className="inline-block w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse"></span>
-              </span>
-              <span className="text-[10px] tracking-wider text-muted-foreground uppercase font-medium text-slate-400">
-                AI & Software Engineering
-              </span>
-            </div>
+          <Link href="/" aria-label="JSD Group Home">
+            <BrandLogo size="md" />
           </Link>
 
           {/* Desktop Nav */}

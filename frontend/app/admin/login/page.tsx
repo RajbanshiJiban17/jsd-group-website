@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { Lock, Mail, ArrowRight, ShieldCheck, AlertCircle } from 'lucide-react';
+import BrandLogo, { LogoIcon } from '@/components/BrandLogo';
 
 export default function AdminLoginPage() {
   const router = useRouter();
@@ -44,9 +45,9 @@ export default function AdminLoginPage() {
   return (
     <div className="min-h-[80vh] flex items-center justify-center p-4">
       <div className="w-full max-w-md p-8 sm:p-10 rounded-3xl glass-panel border border-cyan-500/30 space-y-6">
-        <div className="text-center space-y-2">
-          <div className="w-12 h-12 rounded-2xl bg-gradient-to-tr from-cyan-500 to-indigo-600 flex items-center justify-center text-white mx-auto shadow-lg shadow-cyan-500/25">
-            <Lock className="w-6 h-6" />
+        <div className="text-center space-y-3">
+          <div className="flex justify-center mb-2">
+            <BrandLogo size="lg" />
           </div>
           <h1 className="text-2xl font-black text-white">Admin Management Portal</h1>
           <p className="text-xs text-slate-400">

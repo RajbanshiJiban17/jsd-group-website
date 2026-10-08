@@ -89,10 +89,12 @@ export default async function AboutPage() {
         <div className="p-8 sm:p-14 rounded-3xl glass-panel border border-cyan-500/30">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
             <div className="lg:col-span-4 flex flex-col items-center text-center">
-              <div className="w-40 h-40 rounded-3xl bg-gradient-to-tr from-cyan-500 via-sky-500 to-indigo-600 p-1.5 shadow-2xl shadow-cyan-500/25">
-                <div className="w-full h-full rounded-[22px] bg-slate-900 flex items-center justify-center text-4xl font-black text-cyan-400">
-                  JC
-                </div>
+              <div className="w-44 h-44 rounded-3xl bg-gradient-to-tr from-cyan-500 via-sky-500 to-indigo-600 p-1.5 shadow-2xl shadow-cyan-500/25 overflow-hidden">
+                <img
+                  src="/founder.jpg"
+                  alt={company.founder_name}
+                  className="w-full h-full object-cover object-top rounded-[20px]"
+                />
               </div>
               <h3 className="text-2xl font-black text-white mt-5">{company.founder_name}</h3>
               <p className="text-sm font-semibold text-cyan-400">{company.founder_role}</p>

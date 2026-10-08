@@ -13,6 +13,7 @@ import {
   CourseEnrollment, JobApplication
 } from '@/lib/types';
 import { DEFAULT_COMPANY, DEFAULT_PROJECTS, DEFAULT_SERVICES, DEFAULT_COURSES, DEFAULT_JOBS, DEFAULT_BLOGS } from '@/lib/api';
+import BrandLogo, { LogoIcon } from '@/components/BrandLogo';
 
 const API_BASE = process.env.NEXT_PUBLIC_API_URL || 'http://127.0.0.1:8000/api/v1';
 
@@ -208,9 +209,7 @@ export default function AdminDashboardPage() {
       {/* Admin Top Navbar */}
       <header className="border-b border-slate-800 bg-slate-900/90 px-6 py-4 flex items-center justify-between">
         <div className="flex items-center gap-3">
-          <div className="w-9 h-9 rounded-xl bg-gradient-to-tr from-cyan-500 to-indigo-600 flex items-center justify-center font-black text-white text-base shadow-md shadow-cyan-500/20">
-            JSD
-          </div>
+          <LogoIcon className="w-10 h-10" />
           <div>
             <h1 className="font-extrabold text-white text-base">JSD Group Command Center</h1>
             <p className="text-[10px] text-slate-400 font-mono">FastAPI + SQLite • Production Admin v1.0</p>

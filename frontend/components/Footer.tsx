@@ -4,6 +4,7 @@ import React from 'react';
 import Link from 'next/link';
 import { MapPin, Phone, Mail, Globe, Shield, ArrowUpRight } from 'lucide-react';
 import { GithubIcon, LinkedinIcon } from '@/components/Icons';
+import BrandLogo from '@/components/BrandLogo';
 
 export default function Footer() {
   return (
@@ -15,18 +16,8 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 lg:gap-8 pb-12 border-b border-slate-800/60">
           {/* Column 1: Brand & Tagline */}
           <div className="lg:col-span-2 space-y-4">
-            <Link href="/" className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-cyan-500 to-indigo-600 flex items-center justify-center font-black text-white text-lg tracking-wider">
-                JSD
-              </div>
-              <div className="flex flex-col">
-                <span className="font-extrabold tracking-tight text-xl text-white">
-                  JSD GROUP
-                </span>
-                <span className="text-xs text-cyan-400 font-medium">
-                  Building Intelligent Solutions for a Digital Future.
-                </span>
-              </div>
+            <Link href="/" aria-label="JSD Group Home">
+              <BrandLogo size="lg" />
             </Link>
             <p className="text-sm text-slate-400 leading-relaxed max-w-sm">
               JSD Group is a technology and digital solutions company focused on building practical software, AI-powered systems, data-driven solutions and digital products.
