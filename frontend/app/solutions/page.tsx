@@ -1,10 +1,23 @@
 import React from 'react';
+import type { Metadata } from 'next';
 import Link from 'next/link';
 import {
   Sparkles, Layers, BarChart3, Package, Bot, ArrowRight,
   CheckCircle2, ShieldCheck, Zap, Database, Server
 } from 'lucide-react';
 import RetailIQShowcase from '@/components/RetailIQShowcase';
+
+export const metadata: Metadata = {
+  title: 'Enterprise Solutions & Product Platforms',
+  description: 'Specialized enterprise platforms engineered by JSD Group, including RetailIQ Nepal for inventory analytics and custom AI knowledge agents.',
+  alternates: {
+    canonical: '/solutions',
+  },
+  openGraph: {
+    title: 'Enterprise Solutions & Product Platforms | JSD Group',
+    description: 'Explore RetailIQ Nepal and enterprise RAG intelligent systems developed for business scale.',
+  },
+};
 
 export default function SolutionsPage() {
   return (

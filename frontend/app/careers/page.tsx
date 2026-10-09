@@ -1,9 +1,22 @@
 import React from 'react';
+import type { Metadata } from 'next';
 import { Briefcase, Sparkles } from 'lucide-react';
 import { api } from '@/lib/api';
 import CareersListClient from '@/components/CareersListClient';
 
 export const dynamic = 'force-dynamic';
+
+export const metadata: Metadata = {
+  title: 'Careers & Opportunities',
+  description: 'Join the engineering team at JSD Group. Open roles in AI/ML, Python Backend, and Frontend Development in Nepalgunj, Banke and hybrid.',
+  alternates: {
+    canonical: '/careers',
+  },
+  openGraph: {
+    title: 'Careers & Opportunities | JSD Group',
+    description: 'Grow your software and AI engineering career with JSD Group in Nepal.',
+  },
+};
 
 export default async function CareersPage() {
   const jobs = await api.getJobs();

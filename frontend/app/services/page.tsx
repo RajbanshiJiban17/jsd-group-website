@@ -1,10 +1,25 @@
 import React from 'react';
+import type { Metadata } from 'next';
 import Link from 'next/link';
 import {
   Brain, Bot, BarChart3, Cpu, Globe, Code2, Smartphone,
   Zap, TrendingUp, Compass, Server, GraduationCap, ArrowRight, CheckCircle2, Sparkles
 } from 'lucide-react';
 import { api } from '@/lib/api';
+
+export const dynamic = 'force-dynamic';
+
+export const metadata: Metadata = {
+  title: 'Technology Services & AI Solutions',
+  description: 'Explore JSD Group services in Artificial Intelligence, Machine Learning, Data Analytics, Cloud Backend, and Modern Web Engineering in Nepal.',
+  alternates: {
+    canonical: '/services',
+  },
+  openGraph: {
+    title: 'Technology Services & AI Solutions | JSD Group',
+    description: 'Custom AI model development, high-throughput backend APIs, and enterprise digital solutions tailored for your business.',
+  },
+};
 
 const ICON_MAP: Record<string, React.ReactNode> = {
   Brain: <Brain className="w-6 h-6" />,
@@ -20,8 +35,6 @@ const ICON_MAP: Record<string, React.ReactNode> = {
   Server: <Server className="w-6 h-6" />,
   GraduationCap: <GraduationCap className="w-6 h-6" />,
 };
-
-export const dynamic = 'force-dynamic';
 
 export default async function ServicesPage() {
   const services = await api.getServices();

@@ -1,4 +1,13 @@
 import React from 'react';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Cookie Policy',
+  description: 'JSD Group cookie policy and privacy preferences.',
+  alternates: {
+    canonical: '/cookies',
+  },
+};
 
 export default function CookiesPage() {
   return (

@@ -1,4 +1,5 @@
 import React from 'react';
+import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { ArrowLeft, MapPin, Clock, Briefcase, CheckCircle2 } from 'lucide-react';
@@ -10,6 +11,36 @@ interface PageProps {
 }
 
 export const dynamic = 'force-dynamic';
+
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { slug } = await params;
+  const job = await api.getJobBySlug(slug);
+
+  if (!job) {
+    return {
+      title: 'Job Position Not Found',
+    };
+  }
+
+  return {
+    title: `${job.title} | Career Opportunity`,
+    description: job.description,
+    alternates: {
+      canonical: `/careers/${job.slug}`,
+    },
+    openGraph: {
+      title: `${job.title} (${job.department}) — JSD Group Careers`,
+      description: job.description,
+      url: `/careers/${job.slug}`,
+      type: 'article',
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: `${job.title} — JSD Group Careers`,
+      description: job.description,
+    },
+  };
+}
 
 export default async function JobDetailPage({ params }: PageProps) {
   const { slug } = await params;

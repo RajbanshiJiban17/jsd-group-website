@@ -1,4 +1,5 @@
 import React from 'react';
+import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { ArrowLeft, Calendar, User, Sparkles, Share2 } from 'lucide-react';
@@ -9,6 +10,38 @@ interface PageProps {
 }
 
 export const dynamic = 'force-dynamic';
+
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { slug } = await params;
+  const post = await api.getBlogPostBySlug(slug);
+
+  if (!post) {
+    return {
+      title: 'Article Not Found',
+    };
+  }
+
+  return {
+    title: `${post.title} | Blog`,
+    description: post.summary,
+    alternates: {
+      canonical: `/blog/${post.slug}`,
+    },
+    openGraph: {
+      title: `${post.title} — JSD Group Engineering`,
+      description: post.summary,
+      url: `/blog/${post.slug}`,
+      type: 'article',
+      publishedTime: post.published_at,
+      authors: ['JSD Group Engineering'],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: `${post.title} — JSD Group Engineering`,
+      description: post.summary,
+    },
+  };
+}
 
 export default async function BlogPostPage({ params }: PageProps) {
   const { slug } = await params;

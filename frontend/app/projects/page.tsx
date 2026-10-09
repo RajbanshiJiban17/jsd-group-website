@@ -1,4 +1,5 @@
 import React from 'react';
+import type { Metadata } from 'next';
 import Link from 'next/link';
 import {
   Code2, ExternalLink, ArrowRight, Sparkles, CheckCircle2
@@ -7,6 +8,18 @@ import { GithubIcon } from '@/components/Icons';
 import { api } from '@/lib/api';
 
 export const dynamic = 'force-dynamic';
+
+export const metadata: Metadata = {
+  title: 'Engineering Projects & Case Studies',
+  description: 'Verified production software, AI applications, and machine learning models engineered by JSD Group with measurable results and public repos.',
+  alternates: {
+    canonical: '/projects',
+  },
+  openGraph: {
+    title: 'Engineering Projects & Case Studies | JSD Group',
+    description: 'Explore real-world software, AI, and data analytics systems developed by JSD Group.',
+  },
+};
 
 export default async function ProjectsPage() {
   const projects = await api.getProjects();

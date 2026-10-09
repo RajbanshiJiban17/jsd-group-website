@@ -3,13 +3,15 @@ from typing import List
 from pydantic_settings import BaseSettings
 from pydantic import Field
 
+is_vercel = os.environ.get("VERCEL") == "1"
+
 class Settings(BaseSettings):
     PROJECT_NAME: str = "JSD Group API"
     VERSION: str = "1.0.0"
     API_V1_STR: str = "/api/v1"
     
-    # Database
-    DATABASE_URL: str = Field(default="sqlite:///./jsd_group.db")
+    # Database (uses /tmp/jsd_group.db on Vercel serverless to prevent read-only filesystem errors)
+    DATABASE_URL: str = Field(default="sqlite:////tmp/jsd_group.db" if is_vercel else "sqlite:///./jsd_group.db")
     
     # JWT
     JWT_SECRET: str = Field(default="jsd-group-production-super-secret-key-2026-secure")
@@ -40,7 +42,7 @@ class Settings(BaseSettings):
     ]
     
     # Storage
-    UPLOAD_DIR: str = "uploads"
+    UPLOAD_DIR: str = "/tmp/uploads" if is_vercel else "uploads"
     
     class Config:
         env_file = ".env"

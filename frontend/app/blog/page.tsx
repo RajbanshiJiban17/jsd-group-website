@@ -1,9 +1,22 @@
 import React from 'react';
+import type { Metadata } from 'next';
 import Link from 'next/link';
 import { Sparkles, Calendar, ArrowRight } from 'lucide-react';
 import { api } from '@/lib/api';
 
 export const dynamic = 'force-dynamic';
+
+export const metadata: Metadata = {
+  title: 'Engineering & AI Blog',
+  description: 'Technical insights, tutorials, and practical perspectives on Machine Learning, Full-Stack Architecture, and AI Systems from JSD Group engineers in Nepal.',
+  alternates: {
+    canonical: '/blog',
+  },
+  openGraph: {
+    title: 'Engineering & AI Blog | JSD Group',
+    description: 'Practical technology insights, machine learning architecture, and software design.',
+  },
+};
 
 export default async function BlogPage() {
   const posts = await api.getBlogPosts();

@@ -1,4 +1,5 @@
 import React from 'react';
+import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import {
@@ -13,6 +14,36 @@ interface PageProps {
 }
 
 export const dynamic = 'force-dynamic';
+
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { slug } = await params;
+  const course = await api.getCourseBySlug(slug);
+
+  if (!course) {
+    return {
+      title: 'Course Not Found',
+    };
+  }
+
+  return {
+    title: `${course.title} | Academy Course`,
+    description: course.summary,
+    alternates: {
+      canonical: `/courses/${course.slug}`,
+    },
+    openGraph: {
+      title: `${course.title} — JSD Group Academy`,
+      description: course.summary,
+      url: `/courses/${course.slug}`,
+      type: 'article',
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: `${course.title} — JSD Group Academy`,
+      description: course.summary,
+    },
+  };
+}
 
 export default async function CourseDetailPage({ params }: PageProps) {
   const { slug } = await params;

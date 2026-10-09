@@ -1,4 +1,5 @@
 import React from 'react';
+import type { Metadata } from 'next';
 import Link from 'next/link';
 import {
   Compass, Eye, Award, CheckCircle2,
@@ -8,6 +9,18 @@ import { GithubIcon, LinkedinIcon } from '@/components/Icons';
 import { api } from '@/lib/api';
 
 export const dynamic = 'force-dynamic';
+
+export const metadata: Metadata = {
+  title: 'About Us | JSD Group Engineering & Leadership',
+  description: 'Learn about JSD Group, our mission, core values, leadership, and our commitment to building practical AI and digital technology in Nepal.',
+  alternates: {
+    canonical: '/about',
+  },
+  openGraph: {
+    title: 'About JSD Group — Mission, Vision & Engineering',
+    description: 'Empowering businesses across Nepal with practical AI, predictive machine learning, and resilient software architectures.',
+  },
+};
 
 export default async function AboutPage() {
   const company = await api.getCompanySettings();

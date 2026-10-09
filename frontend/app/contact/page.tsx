@@ -1,9 +1,22 @@
 import React from 'react';
+import type { Metadata } from 'next';
 import { MapPin, Phone, Mail, Clock, MessageSquare, Sparkles } from 'lucide-react';
 import ContactForm from '@/components/ContactForm';
 import { api } from '@/lib/api';
 
 export const dynamic = 'force-dynamic';
+
+export const metadata: Metadata = {
+  title: 'Contact Us | Nepalgunj, Banke, Nepal',
+  description: 'Get in touch with JSD Group in Nepalgunj, Banke, Nepal. Discuss custom AI development, request a RetailIQ demo, or contact founder Jiban Chaudhary.',
+  alternates: {
+    canonical: '/contact',
+  },
+  openGraph: {
+    title: 'Contact JSD Group — Nepalgunj, Banke, Nepal',
+    description: 'Reach our engineering and management team in Nepalgunj for AI and software solutions.',
+  },
+};
 
 export default async function ContactPage() {
   const company = await api.getCompanySettings();

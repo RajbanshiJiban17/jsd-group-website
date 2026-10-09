@@ -7,8 +7,11 @@ import Footer from "@/components/Footer";
 import JeesaAIChat from "@/components/JeesaAIChat";
 
 export const metadata: Metadata = {
-  title: "JSD Group | Building Intelligent Solutions for a Digital Future",
-  description: "JSD Group is a technology company based in Nepalgunj, Banke, Nepal, specializing in practical AI Solutions, Machine Learning, Data Analytics, FastAPI and Next.js Enterprise Software Development.",
+  title: {
+    default: "JSD Group | Building Intelligent Solutions for a Digital Future",
+    template: "%s | JSD Group",
+  },
+  description: "JSD Group is a premier technology company based in Nepalgunj, Banke, Nepal, specializing in practical AI Solutions, Machine Learning, Data Analytics, FastAPI and Next.js Enterprise Software Development.",
   keywords: [
     "JSD Group",
     "JSD Group Nepal",
@@ -22,10 +25,13 @@ export const metadata: Metadata = {
     "Jiban Chaudhary",
     "RetailIQ Nepal"
   ],
-  authors: [{ name: "JSD Group", url: "https://JibanChaudhary1.com.np" }],
+  authors: [{ name: "JSD Group", url: "https://JibanChaudhary1.com.np" }, { name: "Jiban Chaudhary" }],
   creator: "JSD Group",
   publisher: "JSD Group",
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000"),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://jsdgroup.com"),
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
     title: "JSD Group — Building Intelligent Solutions for a Digital Future",
     description: "Practical AI, data analysis, modern software engineering and digital transformation solutions in Nepal.",
@@ -33,15 +39,31 @@ export const metadata: Metadata = {
     siteName: "JSD Group",
     locale: "en_US",
     type: "website",
+    images: [
+      {
+        url: "/logo.svg",
+        width: 1200,
+        height: 630,
+        alt: "JSD Group - Technology and AI Innovation",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "JSD Group — Building Intelligent Solutions for a Digital Future",
     description: "Practical AI, data analysis, and software engineering in Nepal.",
+    images: ["/logo.svg"],
   },
   robots: {
     index: true,
     follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
   },
   icons: {
     icon: '/logo.svg',
@@ -59,11 +81,21 @@ export default function RootLayout({
     "@context": "https://schema.org",
     "@graph": [
       {
+        "@type": "WebSite",
+        "@id": "https://jsdgroup.com/#website",
+        "url": "https://jsdgroup.com",
+        "name": "JSD Group",
+        "description": "Building Intelligent Solutions for a Digital Future",
+        "publisher": {
+          "@id": "https://jsdgroup.com/#organization"
+        }
+      },
+      {
         "@type": "Organization",
         "@id": "https://jsdgroup.com/#organization",
         "name": "JSD Group",
         "url": "https://jsdgroup.com",
-        "logo": "https://jsdgroup.com/logo.png",
+        "logo": "https://jsdgroup.com/logo.svg",
         "founder": {
           "@type": "Person",
           "name": "Jiban Chaudhary",
@@ -79,8 +111,9 @@ export default function RootLayout({
         "@type": "LocalBusiness",
         "@id": "https://jsdgroup.com/#localbusiness",
         "name": "JSD Group",
-        "telephone": "9868837762",
+        "telephone": "+977-9868837762",
         "email": "jibanchy233@gmail.com",
+        "priceRange": "$$",
         "address": {
           "@type": "PostalAddress",
           "streetAddress": "Nepalgunj-10, Adarshnagar",

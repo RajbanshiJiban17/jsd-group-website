@@ -1,9 +1,22 @@
 import React from 'react';
+import type { Metadata } from 'next';
 import { BookOpen, Sparkles } from 'lucide-react';
 import { api } from '@/lib/api';
 import CoursesListClient from '@/components/CoursesListClient';
 
 export const dynamic = 'force-dynamic';
+
+export const metadata: Metadata = {
+  title: 'Technology Courses & Engineering Academy',
+  description: 'Hands-on practical cohort courses in Python, Data Science, Machine Learning, and Full-Stack Web Development taught by JSD Group engineers in Nepalgunj, Nepal.',
+  alternates: {
+    canonical: '/courses',
+  },
+  openGraph: {
+    title: 'Technology Courses & Engineering Academy | JSD Group',
+    description: 'Learn real production skills in Python, AI, Machine Learning, and Web Engineering.',
+  },
+};
 
 export default async function CoursesPage() {
   const courses = await api.getCourses();
