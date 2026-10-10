@@ -1,3 +1,6 @@
+https://jsdgroup.vercel.app/
+
+
 # JSD GROUP — CORPORATE PLATFORM & JEESA AI ASSISTANT
 
 > **Tagline**: Building Intelligent Solutions for a Digital Future.  
