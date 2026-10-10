@@ -70,6 +70,9 @@ export const metadata: Metadata = {
     shortcut: '/logo.svg',
     apple: '/logo.svg',
   },
+  verification: {
+    google: 'googleaa98e125c9971d90',
+  },
 };
 
 export default function RootLayout({
